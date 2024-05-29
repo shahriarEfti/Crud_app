@@ -2,6 +2,7 @@ import 'package:crud_rest_api_assignment/Style/Style.dart';
 import 'package:flutter/material.dart';
 
 import '../RestAPI/RestClient.dart';
+import 'ProductGridViewScreen.dart';
 
 class AddProduct extends StatefulWidget {
   AddProduct({super.key});
@@ -57,7 +58,8 @@ class _AddProductState extends State<AddProduct> {
       await ProductCreateRequest(formValues);
 
       setState(() {
-        Loading = false;
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ProductGridView()),
+        (Route route)=> false);
       });
     }
   }
